@@ -1,0 +1,61 @@
+// wrangler.jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "opennext-test",
+  "compatibility_date": "2025-11-15",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "enable_nodejs_http_modules",
+    "nodejs_compat_populate_process_env",
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+    },
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "preview_urls": false,
+  "env": {
+    "production": {
+      "services": [
+        {
+          "binding": "WORKER_SELF_REFERENCE",
+          "service": "opennext-test-production",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "bucket_name": "my-r2-bucket-test",
+          "binding": "NEXT_INC_CACHE_R2_BUCKET",
+        },
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "NEXT_CACHE_DO_QUEUE",
+            "class_name": "DOQueueHandler",
+          },
+          {
+            "name": "NEXT_TAG_CACHE_DO_SHARDED",
+            "class_name": "DOShardedTagCache",
+          },
+        ],
+      },
+      "migrations": [
+        {
+          "tag": "v1",
+          "new_sqlite_classes": [
+            "DOQueueHandler",
+            "DOShardedTagCache",
+            "BucketCachePurge",
+          ],
+        },
+      ],
+    },
+  },
+}

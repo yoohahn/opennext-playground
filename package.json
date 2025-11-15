@@ -1,0 +1,29 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:start": "opennextjs-cloudflare preview -- --env production --port 3000",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview -- --env production --port 3000",
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000"
+  },
+  "dependencies": {
+    "next": "15.5.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251115.0",
+    "@opennextjs/cloudflare": "^1.12.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3",
+    "wrangler": "4.47.0"
+  },
+  "packageManager": "yarn@4.11.0"
+}
