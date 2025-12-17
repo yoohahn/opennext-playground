@@ -3,7 +3,10 @@ import { defineCloudflareConfig } from "@opennextjs/cloudflare";
 import r2IncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/r2-incremental-cache";
 import doQueue from "@opennextjs/cloudflare/overrides/queue/do-queue";
 import d1NextTagCache from "@opennextjs/cloudflare/overrides/tag-cache/d1-next-tag-cache";
-import { withFilter, softTagFilter } from "@opennextjs/cloudflare/overrides/tag-cache/tag-cache-filter";
+import {
+  withFilter,
+  softTagFilter,
+} from "@opennextjs/cloudflare/overrides/tag-cache/tag-cache-filter";
 import queueCache from "@opennextjs/cloudflare/overrides/queue/queue-cache";
 import { purgeCache } from "@opennextjs/cloudflare/overrides/cache-purge/index";
 
@@ -11,7 +14,7 @@ export default defineCloudflareConfig({
   enableCacheInterception: true,
   incrementalCache: r2IncrementalCache,
   queue: queueCache(doQueue, {
-    regionalCacheTtlSec: 5,
+    regionalCacheTtlSec: 30,
     waitForQueueAck: true,
   }),
   tagCache: withFilter({

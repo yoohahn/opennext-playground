@@ -8,16 +8,17 @@
     "nodejs_compat",
     "enable_nodejs_http_modules",
     "nodejs_compat_populate_process_env",
+    "global_fetch_strictly_public"
   ],
   "observability": {
     "enabled": true,
     "logs": {
-      "enabled": true,
-    },
+      "enabled": true
+    }
   },
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "preview_urls": false,
   "env": {
@@ -25,26 +26,26 @@
       "services": [
         {
           "binding": "WORKER_SELF_REFERENCE",
-          "service": "opennext-test-production",
-        },
+          "service": "opennext-test-production"
+        }
       ],
       "r2_buckets": [
         {
           "bucket_name": "my-r2-bucket-test",
-          "binding": "NEXT_INC_CACHE_R2_BUCKET",
-        },
+          "binding": "NEXT_INC_CACHE_R2_BUCKET"
+        }
       ],
       "durable_objects": {
         "bindings": [
           {
             "name": "NEXT_CACHE_DO_QUEUE",
-            "class_name": "DOQueueHandler",
+            "class_name": "DOQueueHandler"
           },
           {
             "name": "NEXT_TAG_CACHE_DO_SHARDED",
-            "class_name": "DOShardedTagCache",
-          },
-        ],
+            "class_name": "DOShardedTagCache"
+          }
+        ]
       },
       "migrations": [
         {
@@ -52,10 +53,10 @@
           "new_sqlite_classes": [
             "DOQueueHandler",
             "DOShardedTagCache",
-            "BucketCachePurge",
-          ],
-        },
-      ],
-    },
-  },
+            "BucketCachePurge"
+          ]
+        }
+      ]
+    }
+  }
 }
