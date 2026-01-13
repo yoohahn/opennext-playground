@@ -3,7 +3,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
   "name": "opennext-test",
-  "compatibility_date": "2025-11-15",
+  "compatibility_date": "2026-01-13",
   "compatibility_flags": [
     "nodejs_compat",
     "enable_nodejs_http_modules",

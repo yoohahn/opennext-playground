@@ -9,13 +9,14 @@ import { RevalidateButton } from "./_components/RevalidateButton";
 export default async function Home(props: {
   params: Promise<{ slug: string[] }>;
 }) {
+  const slugParams = await props.params;
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <div>
           <h1>Testing</h1>
           <h2>Time For Server Render</h2>
-          <ServerTime />
+          <ServerTime slugParams={slugParams} />
           <h2>Client Render Time</h2>
           <ClientTime />
           <h2>Cache dead in</h2>
